@@ -9,5 +9,7 @@
     public interface IIdentityFactory
     {
         IIdentifier Create();
+
+        IIdentifier Parse(string idMoniker);
     }
 }
