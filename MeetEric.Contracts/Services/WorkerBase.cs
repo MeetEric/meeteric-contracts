@@ -1,4 +1,4 @@
-﻿namespace MeetEric.Messaging
+﻿namespace MeetEric.Services
 {
     using System;
     using System.Collections.Generic;
