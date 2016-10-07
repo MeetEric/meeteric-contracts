@@ -34,13 +34,83 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <None Include="project.json" />
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\CollectionExtensions.cs" />
+    <Compile Include="Collections\Enumerable.cs" />
+    <Compile Include="Collections\ForwardOnlyEnumerable.cs" />
+    <Compile Include="Collections\IAsyncCollection.cs" />
+    <Compile Include="Collections\IAsyncDictionary.cs" />
+    <Compile Include="Collections\IAsyncQueue.cs" />
+    <Compile Include="Collections\IAsyncSet.cs" />
+    <Compile Include="Collections\IReliableObject.cs" />
+    <Compile Include="Collections\IReliableObjectFactory.cs" />
+    <Compile Include="Collections\MoreEnumerable.cs" />
+    <Compile Include="Collections\SimpleComparer.cs" />
+    <Compile Include="Common\MeetEricExtensions.cs" />
+    <Compile Include="Common\MeetEricFactory.cs" />
+    <Compile Include="Common\IEntity.cs" />
+    <Compile Include="Common\IVersionService.cs" />
+    <Compile Include="Common\StaticVersionService.cs" />
+    <Compile Include="Common\UriResolver.cs" />
+    <Compile Include="Diagnostics\IDiagnostics.cs" />
+    <Compile Include="Diagnostics\ILoggerServiceContract.cs" />
+    <Compile Include="Diagnostics\ILoggingContext.cs" />
+    <Compile Include="Diagnostics\ILoggingContextContract.cs" />
+    <Compile Include="Diagnostics\ILoggingContextDecorator.cs" />
+    <Compile Include="Diagnostics\ILoggingEvent.cs" />
+    <Compile Include="Diagnostics\ILoggingService.cs" />
+    <Compile Include="Diagnostics\IWatchdog.cs" />
+    <Compile Include="Diagnostics\LocalLoggingContext.cs" />
+    <Compile Include="Diagnostics\LoggingServiceDecorator.cs" />
+    <Compile Include="Diagnostics\ThresholdEvent.cs" />
+    <Compile Include="Diagnostics\ThrottledEvent.cs" />
+    <Compile Include="Diagnostics\TimedEvent.cs" />
+    <Compile Include="Exceptions\BackOffException.cs" />
+    <Compile Include="Exceptions\BaseMeetEricException.cs" />
+    <Compile Include="Exceptions\RetryableException.cs" />
+    <Compile Include="Exceptions\Throw.cs" />
+    <Compile Include="Security\IIdentityFactory.cs" />
+    <Compile Include="Services\IWorkerRole.cs" />
+    <Compile Include="Services\MultiWorker.cs" />
+    <Compile Include="Services\WorkerBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\BaseIdentifier.cs" />
+    <Compile Include="Security\CaseInsensitiveStringIdentity.cs" />
+    <Compile Include="Security\IIdentifier.cs" />
+    <Compile Include="Security\INormalizedIdentifier.cs" />
+    <Compile Include="Security\ISecurityToken.cs" />
+    <Compile Include="Serialization\ISerializationService.cs" />
+    <Compile Include="Threading\AsyncLock.cs" />
+    <Compile Include="Threading\AsyncSemaphore.cs" />
+    <Compile Include="Threading\ILocker.cs" />
+    <Compile Include="Threading\LockerFactory.cs" />
+    <Compile Include="Threading\Tasks\MeetEricTasks.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
